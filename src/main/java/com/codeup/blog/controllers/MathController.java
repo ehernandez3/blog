@@ -11,23 +11,23 @@ public class MathController {
 
 	@ResponseBody
 	@GetMapping ("/add/{num}/and/{num2}")
-	public int add(@PathVariable int num, @PathVariable int num2) {
+	public double add(@PathVariable double num, @PathVariable double num2) {
 		return num + num2;
 	}
 
 	@ResponseBody
-	@GetMapping ("/subtract/{num2}/from/{num}")
-	public int subtract(@PathVariable int num, @PathVariable int num2) {
-		return num - num2;
+	@GetMapping ("/subtract/{num}/from/{num2}")
+	public double subtract(@PathVariable double num, @PathVariable double num2) {
+		return num2 - num;
 	}
 
 	@GetMapping ("/multiply/{num}/and/{num2}")
-	public int multiply(@PathVariable int num, @PathVariable int num2) {
+	public double multiply(@PathVariable double num, @PathVariable double num2) {
 		return num * num2;
 	}
 
-	@GetMapping ("/divide/{num}/by/{num2}")
-	public int divide(@PathVariable int num, @PathVariable int num2) {
-		return num / num2;
+	@GetMapping ("/divide/{numerator}/by/{denominator}")
+	public double divide(@PathVariable double numerator, @PathVariable double denominator) {
+		return numerator / denominator;
 	}
 }
