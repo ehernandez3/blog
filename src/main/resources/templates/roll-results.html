@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('Dice Roll Results')"></head>
+<body>
+<div class="container text-center">
+	<h1>Results!</h1>
+		<h3 th:if="${guess == roll}">You guessed <strong class="text-success">RIGHT!!!</strong>
+			<h3>Your guess: <span th:text="${guess}" /></h3>
+			<h3>Dice roll: <span th:text="${roll}" /></h3>
+		</h3>
+		<h3 th:if="${guess != roll}">You guessed <strong class="text-danger">WRONG!</strong>
+			<h3>Your guess: <span th:text="${guess}" /></h3>
+			<h3>Dice roll: <span th:text="${roll}" /></h3>
+		</h3>
+
+		<h3>
+			<a href="/roll-dice">Try Again</a>
+		</h3>
+</div>
+
+</body>
+</html>
