@@ -15,7 +15,7 @@ public class DiceRollController {
 
 	@GetMapping ("/roll-dice/{n}")
 	public String rollDice(@PathVariable int n, Model model) {
-		int roll = (int) (Math.random() * 5) + 1;
+		int roll = (int) (Math.random() * 6) + 1;
 
 		model.addAttribute("roll", roll);
 		model.addAttribute("guess", n);

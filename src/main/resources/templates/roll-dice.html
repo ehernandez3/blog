@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head :: head('Roll Dice')"></head>
+<head th:replace="partials :: head('Roll Dice')"></head>
 <body>
 
 <div class="container text-center">
@@ -13,5 +13,7 @@
 	<a class="btn btn-primary" href="/roll-dice/5">5</a>
 	<a class="btn btn-primary" href="/roll-dice/6">6</a>
 </div>
+
+<footer th:replace="partials :: footer"></footer>
 </body>
 </html>

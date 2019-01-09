@@ -28,11 +28,15 @@ public class PostController {
 	@GetMapping ("/posts") // URL (e.g. http://localhost:8080/posts)
 	public String index(Model model) {
 		List<Post> posts = new ArrayList<>();
-		Post post = new Post("Title 1", "body 1");
-		Post post2 = new Post("Title 2", "body 2");
+		Post post = new Post("New Post 1", "Lorem ipsum dolor sit amet");
+		Post post2 = new Post("New Post 2", "Lorem ipsum dolor sit amet");
+		Post post3 = new Post("New Post 3", "Lorem ipsum dolor sit amet");
+		Post post4 = new Post("New Post 4", "Lorem ipsum dolor sit amet");
 
 		posts.add(post);
 		posts.add(post2);
+		posts.add(post3);
+		posts.add(post4);
 
 		model.addAttribute("posts", posts);
 
@@ -42,8 +46,7 @@ public class PostController {
 
 	@GetMapping ("/posts/{id}") // URL (e.g. http://localhost:8080/posts/2)
 	public String show(@PathVariable long id, Model model) {
-		Post post = new Post("Title goes here", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, " +
-				"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
+		Post post = new Post("Title goes here", "Lorem ipsum dolor sit amet");
 		model.addAttribute("post", post);
 
 		// path and file name

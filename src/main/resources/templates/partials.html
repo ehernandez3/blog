@@ -1,10 +1,47 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Title</title>
+
+<head th:fragment="head(title)">
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title th:text="${title}"></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"/>
+	<link rel="stylesheet" type="text/css" media="all" href="../static/css/style.css" th:href="@{/css/style.css}"/>
 </head>
+
 <body>
+
+<header th:fragment="header">
+
+</header>
+
+<nav th:fragment="navbar" class="navbar navbar-default">
+	<ul class="nav">
+		<li class="nav-item">
+			<a class="nav-link" href="">Home</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="">Posts</a
+			></li>
+		<li class="nav-item">
+			<a class="nav-link" href="">About</a>
+			</li>
+		<li class="nav-item">
+			<a class="nav-link" href="">Contact</a>
+		</li>
+	</ul>
+</nav>
+
+
+
+
+
+
+<footer th:fragment="footer" class="footer">
+	<div class="container">
+		<p class="text-muted text-center">Place sticky footer content here.</p>
+	</div>
+</footer>
 
 </body>
 </html>
