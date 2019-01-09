@@ -1,20 +1,27 @@
 package com.codeup.blog.models;
 
+
 public class Post {
-	private Long id;
+	private int id;
 	private String title;
 	private String body;
+
+	public Post(int id, String title, String body) {
+		this.id = id;
+		this.title = title;
+		this.body = body;
+	}
 
 	public Post(String title, String body) {
 		this.title = title;
 		this.body = body;
 	}
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
