@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials :: head('Roll Dice')"></head>
+<body>
+
+<div class="container text-center">
+<h1>Guess the Dice Roll</h1>
+	<h4>Click the number your think will match the dice roll!</h4>
+	<a class="btn btn-primary" href="/roll-dice/1">1</a>
+	<a class="btn btn-primary" href="/roll-dice/2">2</a>
+	<a class="btn btn-primary" href="/roll-dice/3">3</a>
+	<a class="btn btn-primary" href="/roll-dice/4">4</a>
+	<a class="btn btn-primary" href="/roll-dice/5">5</a>
+	<a class="btn btn-primary" href="/roll-dice/6">6</a>
+</div>
+
+<footer th:replace="partials :: footer"></footer>
+</body>
+</html>
