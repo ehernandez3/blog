@@ -9,26 +9,31 @@ import java.util.List;
 public class PostService {
 	private List<Post> posts;
 
+	// Service Constructor
 	public PostService() {
 		posts = new ArrayList<>();
 		createPosts();
 	}
 
+	// Returns a list of all the posts
 	public List<Post> allPosts() {
 
 		return posts;
 	}
 
+	// Creates an individual post and adds it to the list
 	public Post createOnePost(Post post) {
 		post.setId(posts.size() + 1);
 		posts.add(post);
 		return post;
 	}
 
+	// Returns an individual post based on the id
 	public Post onePost(int id) {
 		return posts.get(id - 1);
 	}
 
+	// Here we create multiple posts and add them to the list
 	private void createPosts() {
 		Post post1 = new Post("Post Title 1", "Post Body1");
 		Post post2 = new Post("Post Title 2", "Post Body2");
@@ -41,6 +46,11 @@ public class PostService {
 		createOnePost(post3);
 		createOnePost(post4);
 		createOnePost(post5);
+	}
+
+	public void save(Post post) {
+		createOnePost(post);
+
 	}
 
 
