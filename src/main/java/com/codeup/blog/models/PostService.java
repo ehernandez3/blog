@@ -21,6 +21,11 @@ public class PostService {
 		return posts;
 	}
 
+	// Returns an individual post based on the id
+	public Post findOnePost(int id) {
+		return posts.get(id - 1);
+	}
+
 	// Assigns an id to a post and ads the post to the list
 	public Post save(Post post) {
 		post.setId(posts.size() + 1);
@@ -28,9 +33,11 @@ public class PostService {
 		return post;
 	}
 
-	// Returns an individual post based on the id
-	public Post onePost(int id) {
-		return posts.get(id - 1);
+	public Post edit (Post post) {
+		Post pp = posts.get(post.getId()-1);
+		pp.setTitle(post.getTitle());
+		pp.setBody(post.getBody());
+		return pp;
 	}
 
 	// Here we create multiple posts and add them to the list
@@ -47,6 +54,7 @@ public class PostService {
 		save(post4);
 		save(post5);
 	}
+
 
 
 
