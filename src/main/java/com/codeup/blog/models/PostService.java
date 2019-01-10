@@ -21,8 +21,8 @@ public class PostService {
 		return posts;
 	}
 
-	// Creates an individual post and adds it to the list
-	public Post createOnePost(Post post) {
+	// Assigns an id to a post and ads the post to the list
+	public Post save(Post post) {
 		post.setId(posts.size() + 1);
 		posts.add(post);
 		return post;
@@ -41,17 +41,13 @@ public class PostService {
 		Post post4 = new Post("Post Title 4", "Post Body4");
 		Post post5 = new Post("Post Title 5", "Post Body5");
 
-		createOnePost(post1);
-		createOnePost(post2);
-		createOnePost(post3);
-		createOnePost(post4);
-		createOnePost(post5);
+		save(post1);
+		save(post2);
+		save(post3);
+		save(post4);
+		save(post5);
 	}
 
-	public void save(Post post) {
-		createOnePost(post);
-
-	}
 
 
  }

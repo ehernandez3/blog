@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials :: head('Add New Post')"></head>
+
+<body>
+
+<nav th:replace="partials :: navbar"></nav>
+
+<div class="container-fluid">
+	<h3>Add New Post</h3>
+	<form action="/posts/create" method="post" th:object="${post}">
+		Post title:
+		<input th:field="*{title}" />
+		<br />
+		Description:
+		<input th:field="*{body}" />
+		<br />
+		<input type="submit" />
+	</form>
+</div> <!-- close container div -->
+
+<footer th:replace="partials :: footer"></footer>
+</body>
+</html>

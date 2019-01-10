@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head :: head('Your Post')"></head>
+<head th:replace="fragments/head :: head('Post')"></head>
 <body>
 <nav th:replace="fragments/navbar :: navbar"></nav>
 <div class="container-fluid">
@@ -10,6 +10,6 @@
 	<h3 th:text="${post.id}"></h3>
 </div>
 
-
+<footer th:replace="partials :: footer"></footer>
 </body>
 </html>
