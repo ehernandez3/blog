@@ -9,26 +9,45 @@ import java.util.List;
 public class PostService {
 	private List<Post> posts;
 
+	// Service Constructor
 	public PostService() {
 		posts = new ArrayList<>();
 		createPosts();
 	}
 
+	// Returns a list of all the posts
 	public List<Post> allPosts() {
 
 		return posts;
 	}
 
-	public Post createOnePost(Post post) {
+	// Returns an individual post based on the id
+	public Post findOnePost(int id) {
+		return posts.get(id - 1);
+	}
+
+	// Assigns an id to a post and ads the post to the list
+	public Post save(Post post) {
 		post.setId(posts.size() + 1);
 		posts.add(post);
 		return post;
 	}
 
-	public Post onePost(int id) {
-		return posts.get(id - 1);
+	public Post edit (Post post) {
+		post.setId(post.getId() - 1);
+		posts.set(post.getId(), post);
+
+//		Post editedPost = posts.get(post.getId()-1);
+//		editedPost.setTitle(post.getTitle());
+//		editedPost.setBody(post.getBody());
+
+//			Post pp = posts.get(post.getId() - 1);
+////        pp.setTitle(post.getTitle());
+////        pp.setBody(post.getBody());
+		return post;
 	}
 
+	// Here we create multiple posts and add them to the list
 	private void createPosts() {
 		Post post1 = new Post("Post Title 1", "Post Body1");
 		Post post2 = new Post("Post Title 2", "Post Body2");
@@ -36,12 +55,14 @@ public class PostService {
 		Post post4 = new Post("Post Title 4", "Post Body4");
 		Post post5 = new Post("Post Title 5", "Post Body5");
 
-		createOnePost(post1);
-		createOnePost(post2);
-		createOnePost(post3);
-		createOnePost(post4);
-		createOnePost(post5);
+		save(post1);
+		save(post2);
+		save(post3);
+		save(post4);
+		save(post5);
 	}
+
+
 
 
  }
