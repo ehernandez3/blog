@@ -34,10 +34,17 @@ public class PostService {
 	}
 
 	public Post edit (Post post) {
-		Post pp = posts.get(post.getId()-1);
-		pp.setTitle(post.getTitle());
-		pp.setBody(post.getBody());
-		return pp;
+		post.setId(post.getId() - 1);
+		posts.set(post.getId(), post);
+
+//		Post editedPost = posts.get(post.getId()-1);
+//		editedPost.setTitle(post.getTitle());
+//		editedPost.setBody(post.getBody());
+
+//			Post pp = posts.get(post.getId() - 1);
+////        pp.setTitle(post.getTitle());
+////        pp.setBody(post.getBody());
+		return post;
 	}
 
 	// Here we create multiple posts and add them to the list

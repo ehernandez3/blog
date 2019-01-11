@@ -58,7 +58,7 @@ public class PostController {
 	@PostMapping ("/posts/{id}/edit")
 	public String editPost(@ModelAttribute Post post) {
 		postService.edit(post);
-		return "posts/" + post.getId();
+		return "redirect:/posts/" + post.getId();
 	}
 
 
