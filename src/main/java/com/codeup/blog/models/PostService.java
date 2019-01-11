@@ -1,5 +1,6 @@
 package com.codeup.blog.models;
 
+import com.codeup.blog.Repositories.PostRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -7,67 +8,29 @@ import java.util.List;
 
 @Service
 public class PostService {
-	private List<Post> posts;
+	private final PostRepository postRepository;
 
-	// Service Constructor
-	public PostService() {
-		posts = new ArrayList<>();
-		createPosts();
+	public PostService (PostRepository postRepository) {
+		this.postRepository = postRepository;
 	}
+
 
 	// Returns a list of all the posts
 	public List<Post> allPosts() {
-
-		return posts;
+		return (List<Post>) postRepository.findAll();
 	}
 
 	// Returns an individual post based on the id
-	public Post findOnePost(int id) {
-		return posts.get(id - 1);
+	public Post findOnePost(long id) {
+		return postRepository.findOne(id);
+
 	}
 
 	// Assigns an id to a post and ads the post to the list
-	public Post save(Post post) {
-		post.setId(posts.size() + 1);
-		posts.add(post);
-		return post;
+	public long save(Post post) {
+		postRepository.save(post);
+		return post.getId();
 	}
-
-	public Post edit (Post post) {
-		post.setId(post.getId() - 1);
-		posts.set(post.getId(), post);
-
-//		Post editedPost = posts.get(post.getId()-1);
-//		editedPost.setTitle(post.getTitle());
-//		editedPost.setBody(post.getBody());
-
-//			Post pp = posts.get(post.getId() - 1);
-////        pp.setTitle(post.getTitle());
-////        pp.setBody(post.getBody());
-		return post;
-	}
-
-	// Here we create multiple posts and add them to the list
-	private void createPosts() {
-		Post post1 = new Post("Post Title 1", "Post Body1");
-		Post post2 = new Post("Post Title 2", "Post Body2");
-		Post post3 = new Post("Post Title 3", "Post Body3");
-		Post post4 = new Post("Post Title 4", "Post Body4");
-		Post post5 = new Post("Post Title 5", "Post Body5");
-
-		save(post1);
-		save(post2);
-		save(post3);
-		save(post4);
-		save(post5);
-	}
-
-
 
 
  }
-//Create a PostService class and inject it into your posts controller. The service should
-// keep an array list of posts internally, and have methods for:
-//
-//		- finding a post (retrieving an individual post object)
-//		- retrieving all the posts

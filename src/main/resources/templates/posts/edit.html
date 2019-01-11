@@ -10,10 +10,10 @@
 	<h3>Edit Post</h3>
 	<form th:action="'/posts/' + ${post.id} + '/edit'" method="post" th:object="${post}">
 		Post title:
-		<input th:value="*{title}" />
+		<input th:field="*{title}" />
 		<br />
 		Description:
-		<input th:value="*{body}" />
+		<textarea th:field="*{body}" />
 		<br />
 		<input type="submit" />
 	</form>
