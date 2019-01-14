@@ -1,31 +1,33 @@
 package com.codeup.blog.models;
 
+import javax.persistence.*;
 
+@Entity
+@Table(name="posts")
 public class Post {
-	private int id;
+
+	@Id @GeneratedValue
+	private long id;
+
+	@Column(nullable = false, length = 100)
 	private String title;
+
+	@Column(nullable = false, length = 10000)
 	private String body;
 
-	public Post() {
+	public Post() {}
 
-	}
-
-	public Post(int id, String title, String body) {
+	public Post(long id, String title, String body) {
 		this.id = id;
 		this.title = title;
 		this.body = body;
 	}
 
-	public Post(String title, String body) {
-		this.title = title;
-		this.body = body;
-	}
-
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

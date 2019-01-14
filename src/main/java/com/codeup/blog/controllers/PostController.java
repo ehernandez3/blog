@@ -28,7 +28,7 @@ public class PostController {
 	}
 
 	@GetMapping ("/posts/{id}") // URL (e.g. http://localhost:8080/posts/2)
-	public String showPost(@PathVariable int id, Model model) {
+	public String showPost(@PathVariable long id, Model model) {
 		model.addAttribute("post", postService.findOnePost(id));
 		model.addAttribute("id", id);
 
@@ -50,16 +50,21 @@ public class PostController {
 	}
 
 	@GetMapping ("/posts/{id}/edit")
-	public String showEditForm(@PathVariable int id, Model model) {
+	public String showEditForm(@PathVariable long id, Model model) {
 		model.addAttribute("post", postService.findOnePost(id));
 		return "posts/edit";
 	}
 
 	@PostMapping ("/posts/{id}/edit")
 	public String editPost(@ModelAttribute Post post) {
-		postService.edit(post);
+		postService.save(post);
 		return "redirect:/posts/" + post.getId();
 	}
 
+	@PostMapping("/posts/{id}/delete")
+	public String deletePost(@PathVariable long id) {
+		postService.delete(postService.findOnePost(id));
+		return "redirect:/posts";
+	}
 
 }
