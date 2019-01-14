@@ -3,6 +3,7 @@ package com.codeup.blog.controllers;
 import com.codeup.blog.Repositories.UserRepository;
 import com.codeup.blog.models.Post;
 import com.codeup.blog.models.PostService;
+import com.codeup.blog.models.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -34,6 +35,7 @@ public class PostController {
 	@GetMapping ("/posts/{id}") // URL (e.g. http://localhost:8080/posts/2)
 	public String showPost(@PathVariable long id, Model model) {
 		model.addAttribute("post", postService.findOnePost(id));
+		model.addAttribute("userEmail", postService.findOnePost(id).getUser().getEmail());
 		model.addAttribute("id", id);
 
 		// path and file name
@@ -47,7 +49,8 @@ public class PostController {
 	}
 
 	@PostMapping ("/posts/create")
-	public String saveNewPost(@ModelAttribute Post post) {
+	public String saveNewPost(@ModelAttribute Post post, Long id) {
+		post.setUser(userRepository.findOne(1L));
 		postService.save(post);
 
 		return "redirect:/posts";
