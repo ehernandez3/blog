@@ -1,5 +1,6 @@
 package com.codeup.blog.controllers;
 
+import com.codeup.blog.Repositories.UserRepository;
 import com.codeup.blog.models.Post;
 import com.codeup.blog.models.PostService;
 import org.springframework.stereotype.Controller;
@@ -13,9 +14,12 @@ import java.util.List;
 public class PostController {
 
 	private final PostService postService;
+	private UserRepository userRepository;
 
-	public PostController (PostService postService) {
+
+	public PostController (PostService postService, UserRepository userRepository) {
 		this.postService = postService;
+		this.userRepository = userRepository;
 	}
 
 	@GetMapping ("/posts") // URL (e.g. http://localhost:8080/posts)
