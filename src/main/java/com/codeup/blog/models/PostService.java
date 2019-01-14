@@ -8,7 +8,7 @@ import java.util.List;
 
 @Service
 public class PostService {
-	private final PostRepository postRepository;
+	private  PostRepository postRepository;
 
 	public PostService (PostRepository postRepository) {
 		this.postRepository = postRepository;
@@ -30,6 +30,11 @@ public class PostService {
 	public long save(Post post) {
 		postRepository.save(post);
 		return post.getId();
+	}
+
+	// Deletes a post
+	public void delete(Post post){
+		postRepository.delete(post);
 	}
 
 

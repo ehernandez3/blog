@@ -5,20 +5,17 @@ import javax.persistence.*;
 @Entity
 @Table(name="posts")
 public class Post {
+
 	@Id @GeneratedValue
 	private long id;
 
-//	@Column(nullable = false, length = 100)
 	@Column(nullable = false, length = 100)
 	private String title;
 
-//	@Column(nullable = false, length = 300)
-	@Column(nullable = false, length = 300)
+	@Column(nullable = false, length = 10000)
 	private String body;
 
-	public Post() {
-
-	}
+	public Post() {}
 
 	public Post(long id, String title, String body) {
 		this.id = id;
