@@ -10,16 +10,13 @@ public class User {
 	@Id @GeneratedValue
 	private long id;
 
-	@Column (nullable = false, length = 100
-	)
-	private String userName;
+	@Column (unique = true, nullable = false, length = 100)
+	private String username;
 
-	@Column(nullable = false, length = 100
-	)
+	@Column(unique = true, nullable = false, length = 100)
 	private String email;
 
-	@Column(nullable = false, length = 100
-	)
+	@Column(nullable = false, length = 100)
 	private String password;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
@@ -27,17 +24,11 @@ public class User {
 
 	public User() {}
 
-	public User(long id, String userName, String email, String password) {
-		this.id = id;
-		this.userName = userName;
-		this.email = email;
-		this.password = password;
-	}
-
-	public User(String userName, String email, String password) {
-		this.userName = userName;
-		this.email = email;
-		this.password = password;
+	public User(User copy) {
+		id = copy.id;
+		email = copy.email;
+		username = copy.username;
+		password = copy.password;
 	}
 
 	public long getId() {
@@ -48,12 +39,12 @@ public class User {
 		this.id = id;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getEmail() {
