@@ -10,13 +10,16 @@ public class User {
 	@Id @GeneratedValue
 	private long id;
 
-	@Column (nullable = false, length = 50)
+	@Column (nullable = false, length = 100
+	)
 	private String userName;
 
-	@Column(nullable = false, length = 50)
+	@Column(nullable = false, length = 100
+	)
 	private String email;
 
-	@Column(nullable = false, length = 50)
+	@Column(nullable = false, length = 100
+	)
 	private String password;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")

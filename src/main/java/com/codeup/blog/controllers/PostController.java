@@ -35,7 +35,7 @@ public class PostController {
 	@GetMapping ("/posts/{id}") // URL (e.g. http://localhost:8080/posts/2)
 	public String showPost(@PathVariable long id, Model model) {
 		model.addAttribute("post", postService.findOnePost(id));
-		model.addAttribute("userEmail", postService.findOnePost(id).getUser().getEmail());
+		model.addAttribute("user", postService.findOnePost(id).getUser());
 		model.addAttribute("id", id);
 
 		// path and file name
@@ -50,7 +50,7 @@ public class PostController {
 
 	@PostMapping ("/posts/create")
 	public String saveNewPost(@ModelAttribute Post post, Long id) {
-		post.setUser(userRepository.findOne(1L));
+		post.setUser(userRepository.findOne(1L)); // Will need to change this to "id" instead of manual number
 		postService.save(post);
 
 		return "redirect:/posts";
